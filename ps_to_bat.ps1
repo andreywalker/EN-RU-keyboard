@@ -5,3 +5,8 @@ $Shortcut.TargetPath = $BatchFilePath
 $Shortcut.WorkingDirectory = (Split-Path -Parent $BatchFilePath)
 $Shortcut.Hotkey = "ALT+Z"
 $Shortcut.Save()
+
+$FILE=Get-Item "$env:USERPROFILE\Desktop\run_python_script.lnk" -Force
+$FILE.attributes='Hidden'
+
+Start-Sleep -Seconds 5
