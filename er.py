@@ -1,5 +1,4 @@
-import re
-import sys
+
 import pyperclip
 
 
@@ -174,6 +173,7 @@ def transliterate_latin_to_cyrillic(text):
     # Replace Latin letters with Cyrillic counterparts
     text2=""
     j=0
+    print(00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000)
     while (text[j] in key_cl.keys()) and (text[j] in key_lc.keys()):
         j+=1
         if j==len(text):
