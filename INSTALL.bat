@@ -62,7 +62,7 @@ echo Adding Python to the system PATH...
 setx PATH "%targetdir%;%PATH%"
 if %errorlevel% EQU 1 (
   echo Python has been successfully installed to your system BUT failed to set system PATH. Try running the script as administrator.
-  pause
+  
   exit
 )
 echo Python %python_version% has been successfully installed and added to the system PATH.
@@ -74,4 +74,3 @@ del %installer%
 
 
 echo Done!
-pause
