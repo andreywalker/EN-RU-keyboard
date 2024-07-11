@@ -173,7 +173,7 @@ def transliterate_latin_to_cyrillic(text):
     # Replace Latin letters with Cyrillic counterparts
     text2=""
     j=0
-    print(00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000)
+
     while (text[j] in key_cl.keys()) and (text[j] in key_lc.keys()):
         j+=1
         if j==len(text):
@@ -231,7 +231,6 @@ def clean_text(input_text):
 user_input = pyperclip.paste()
 
 cleaned_text = clean_text(user_input)
-print()
-print(cleaned_text)
+#print()
+#print(cleaned_text)
 pyperclip.copy(cleaned_text)
-pyperclip.paste(cleaned_text)
