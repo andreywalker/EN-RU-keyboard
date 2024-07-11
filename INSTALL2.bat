@@ -1,19 +1,16 @@
 @echo off
-python get-pip.py 
-
-REM Get the current Python Scripts directory
-for /f "usebackq tokens=*" %%a in (`python -c "import sysconfig; print(sysconfig.get_path('scripts'))"`) do (
+set "python_script=get-pip.py"
+set "output_file=pip_install_output.txt"
+python %python_script% > %output_file% 2>&1
+setlocal enabledelayedexpansion
+set "file_path=pip_install_output.txt"
+set "pip_path="
+for /f "usebackq tokens=2 delims=''" %%a in ("%file_path%") do (
     set "pip_path=%%a"
+    goto :FoundPath
 )
 
-REM Add pip directory to system PATH if it exists
-if exist "%pip_path%" (
-    echo Adding %pip_path% to PATH...
-    setx PATH "%pip_path%;%PATH%" /M
-    echo Added %pip_path% to PATH successfully.
-) else (
-    echo Error: pip directory not found.
-)
-
-pip install pyperclip
+:FoundPath
+del %output_file%
+"%pip_path%\pip.exe" install pyperclip > nul 2>&1
 python py_to_ps.py > nul 2>&1
