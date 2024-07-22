@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FILE=$(find ../ -name er.py)
+FILE=$(find ./scripts/EN-RU-keyboard/ -name main.py)
 
 if [ -f "$FILE" ]; then
   # Get the directory path from the file path.
@@ -9,5 +9,5 @@ if [ -f "$FILE" ]; then
   #   /path/to/         <-- directory path
   DIR=$(dirname "$FILE")
   cd "$DIR"
+  python3 main.py
 fi
-python3 er.py
